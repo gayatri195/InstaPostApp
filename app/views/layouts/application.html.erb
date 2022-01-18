@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Share Your Photos Online - Instapost</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <div class= "row">
+          <div class="col-6">
+            <a class="navbar-brand" href="/">Instapost</a>
+          </div>
+          <div class="col-6">
+            <ul class="navbar-nav">
+              <% if current_user %>
+                <li class="nav-item-newpost">
+                <i class="fas fa-plus-circle fa-lg"></i>
+                  <%= link_to 'New Post', new_post_path %>
+                </li>
+
+                <div class= "search-box">
+                <i class="fas fa-search icon-search"></i>
+                <input name="search" type="text", placeholder="Search people" />
+                </div>
+
+                <li class="nav-item-logout">
+                  <%= link_to 'Log Out', logout_path, method: "delete" %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to 'Sign Up', signup_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Log In', login_path %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+    <%= yield %>
+  </body>
+</html>

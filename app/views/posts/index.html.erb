@@ -1,0 +1,56 @@
+
+<%# <h2>Hello!<%= current_user&.email %>
+<%# </h2> %> 
+<% @posts.each do |post| %>
+<div class="card mb-4" style="width: 70rem; margin:auto;"> <!--style="40rem; margin:auto;"-->
+<div class="card-header">
+<%= link_to post.user_email, user_path(post.user_id) %>
+<% if current_user != nil %>
+<% if post.user.id == current_user.id %>
+    <%= link_to 'Edit Post', edit_post_path(post.id) %>
+    <%= link_to 'Delete Post', post_path(post.id), method: :delete %>
+    <% elsif current_user.followees.include?(post.user) %>
+          <h5><%= button_to "Unfollow", unfollow_user_path(post.user.id), method: "POST" %></h5>
+      <% else %>
+          <h5><%= button_to "Follow", follow_user_path(post.user.id), method: "POST"  %></h5>
+   <% end %> 
+   <% end %>
+</div>
+
+ <div class="card-body">
+  <%= image_tag post.photo, class:"card-img-top medium-height" %>
+
+  </div>
+  
+  <div class="card-footer">
+   <span id="likes_container_<%= post.id %>">
+    <%= render partial: 'likes', locals: {post: post} %>
+   </span>
+ <div class="desc">
+  <%= post.description %>
+  </div>
+
+  <% post.comments.each do |comment| %>
+      <p><b><%= comment.user.email %></b>
+      <%= comment.description.inspect %></p> 
+      <% if comment.user == current_user || post.user == current_user %> 
+      <%= link_to 'Delete', post_comment_path(post_id: post.id, id: comment.id), method: :delete %>
+      <% end %>
+  <% end %>
+
+  <%if current_user != nil%>      
+  <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post, html: {class: 'form-horizontal' } do |f| %>
+  <p><%= f.input :description, label: 'Comment', placeholder: 'Add a comment...' %>
+  <%= f.submit 'Post', class: 'btn btn-primary btn-block' %></p>
+  <% end %>
+<% end %>
+</div>
+</div>
+<% end %>
+
+<div id="infinite-scrolling">
+  <%= will_paginate @products %>
+</div>
+<div id="my-posts">
+  <%= render partial: 'posts', locals: {posts: @posts} %>
+</div>

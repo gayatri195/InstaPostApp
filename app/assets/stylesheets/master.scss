@@ -1,0 +1,182 @@
+$brand-font: 'Satisfy', cursive;
+$main-blue: #00497B;
+
+$color-primary: #9BC788;
+$search-width: 100px;
+$search-icon-width: 32px;
+$search-height: 40px;
+$visible-results: 5;
+
+nav {
+  border-bottom: 1px solid #dbdbdb;
+  background-color: white;
+  height: 76px;
+}
+
+.navbar .navbar-brand {
+  font-family: $brand-font;
+  font-size: 30px;
+  vertical-align: middle;
+  font-weight: bold;
+  color: white;
+  margin: 5px;
+}
+.navbar .navbar-brand a {
+  color: black;
+}
+.navbar .navbar-brand a :hover{
+  color: blue;
+} 
+
+.post_like {
+  .far, .fas {
+    font-size: 20px;
+  }
+}
+
+.nav-item {
+  vertical-align: middle;
+  font-weight: 500;
+  margin: 5px;
+
+  a{
+    font-size: 16px;
+  }
+}
+.nav-item-logout {
+  vertical-align: middle;
+  font-weight: 500;
+  margin: 5px;
+  padding-right: 70px;
+  margin-left: 600px;
+
+  a{
+    font-size: 16px;
+  }
+  
+}
+
+.navbar-expand-lg .navbar-nav {
+  position: absolute;
+
+  li {
+    padding-left: 5px;
+    font-weight: 100;
+    font-size: 12px;
+  }
+}
+.input{
+  position: relative;
+}
+.search-box {
+  position: absolute;
+  margin-left: 500px;
+}
+.search-box  i{
+  position: absolute;
+}
+.icon-search{
+  padding: 10px;
+  min-width: 40px;
+
+}
+.nav-item-newpost{
+  margin-left: 60px;
+  font-size: 20px;
+  margin-top: 12px;
+
+}
+.position{
+  position: relative;
+}
+
+.position-main{
+  position: static;
+}
+.position-1{
+  position: ralative;
+  top: 10px;
+}
+.desc{
+  position: relative;
+}
+.input-icons i {
+  position: relative;
+}
+
+.input-icons {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+.login{
+  width: 382px;  
+  overflow: hidden;  
+  margin: auto;  
+  margin: 20 0 0 450px;  
+  padding: 80px;  
+  background: #23463f;  
+  border-radius: 15px ;
+}
+
+h4{  
+  text-align: center;  
+  color: #277582;  
+  padding: 20px;  
+} 
+h1{
+  text-align: center;
+  font-size: small;
+  font-weight: 400;
+  font-family: 'Courier New', Courier, monospace;
+}
+#Email{
+  width: 200px;  
+  height: 30px;  
+  border: none;  
+  border-radius: 3px;  
+  padding-left: 8px; 
+  color: blue;
+}
+#Password{
+  width: 300px;  
+  height: 30px;  
+  border: none;  
+  border-radius: 3px;  
+  padding-left: 8px; 
+}
+
+.field{
+  width: 300px;  
+  height: 30px;  
+  border: none;  
+  border-radius: 3px;  
+  padding-left: 8px; 
+}  
+.actions{
+  width: 300px;  
+  height: 30px;  
+  border: none;  
+  border-radius: 17px;  
+  padding-left: 7px;  
+  color: blue; 
+  text-align: center;
+}
+.follow{
+  &:link, &:visited {
+    color: blue;
+  }
+}
+
+
+
